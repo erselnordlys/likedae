@@ -1,6 +1,10 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div id="main">
-    <div id="header" class="header"></div>
+    <div id="header" class="header">
+      <div class="user">
+        <div class="user-name">{{msg.user}}</div>
+      </div>
+    </div>
     <div id="dialogue" class="header">{{msg.dialogue}}</div>
     <div id="data">
       <applications class="container"></applications>
@@ -16,9 +20,10 @@
     name: '',
     data () {
       return {
-          msg: {
-              dialogue: 'ДИАЛОГОВОЕ ОКНО'
-          }
+        msg: {
+          dialogue: 'ДИАЛОГОВОЕ ОКНО',
+          user: 'Александр'
+        }
       }
     },
     components: {
@@ -33,7 +38,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    /*margin-right: -20px;*/
     width: 100%;
   }
   .header {
@@ -42,6 +46,25 @@
   }
   #header {
     background: #fff url('../assets/logo.png') 30px 50% / 130px 23px no-repeat;
+    justify-content: flex-end;
+    padding: 0 30px;
+
+  }
+
+  .user {
+    align-items: center;
+    background: url('../assets/photo.png') left / 50px 50px no-repeat;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 210px;
+  }
+
+  .user-name {
+    background: url('../assets/caret-down.png') right/ 10px 10px no-repeat;
+    font-size: 20px;
+    margin-left: 60px;
+    width: 150px;
   }
 
   #dialogue {
@@ -50,7 +73,7 @@
     color: #d39c00;
     display: flex;
     font-size: 16px;
-    padding-left: 30px;
+    padding: 0 30px;
   }
 
   #data {
