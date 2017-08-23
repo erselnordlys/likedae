@@ -73,6 +73,7 @@
   #header {
     background: #8dbbec;
     color: white;
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     font-size: 16px;
@@ -83,6 +84,10 @@
     align-items: center;
     display: flex;
     justify-content: center;
+  }
+
+  #header div:hover {
+    background-color: #65a3e5;
   }
 
   .applics {
@@ -151,6 +156,7 @@
 
   .stars-icon {
     background: url('../assets/fa-star.png') top / 15px 15px no-repeat;
+    cursor: pointer;
     height: 18px;
     margin-left: 10px;
     margin-right: 10px;
@@ -177,5 +183,9 @@
     margin-left: -90px;
     position: absolute;
     width: 180px;
+  }
+
+  #button:hover {
+    background-color: #65a3e5;
   }
 </style>

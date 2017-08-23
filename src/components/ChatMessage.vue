@@ -115,7 +115,7 @@
   }
 
   .sm {
-    background: url('../assets/vk-icon.png') left / 15px 10px no-repeat;
+    background: url('../assets/vk-grey.png') left / 15px 10px no-repeat;
     color: #606060;
     cursor: pointer;
     font-size: 12px;

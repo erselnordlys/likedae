@@ -48,7 +48,7 @@
   }
   .header {
     display: flex;
-    height: 80px;
+    min-height: 80px;
     width: auto;
   }
   #header {
@@ -68,6 +68,7 @@
 
   .user-name {
     background: url('../assets/caret-down.png') right/ 10px 10px no-repeat;
+    cursor: pointer;
     font-size: 20px;
     margin-left: 60px;
     padding-right: 20px;

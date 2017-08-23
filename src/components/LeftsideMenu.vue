@@ -33,13 +33,13 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    /*height: auto;  */
     min-height: 100%;
     min-width: 60px;
     width: 80px;
   }
 
   .button {
+    cursor: pointer;
     height: 80px;
     position: relative;
   }
@@ -75,6 +75,7 @@
     align-items: center;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
     display: flex;
     height: 30px;
     justify-content: center;
@@ -83,6 +84,15 @@
     right: -10px;
     top: 50%;
     width: 40px;
+
+    transition: all 0.5s;
+  }
+
+  .news:hover {
+    height: 32px;
+    margin-top: -16px;
+    right: -12px;
+    width: 44px;
   }
 
   .fire-news {

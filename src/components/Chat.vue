@@ -7,11 +7,18 @@
       </div>
 
       <div class="social-media">
-        <div class="inst-icon"></div>
-        <div class="fb-icon"></div>
-        <div class="current"> <div class="vk-icon"></div> {{msg.smName}} </div>
-        <div class="ok-icon"></div>
-        <div class="tw-icon"></div>
+
+        <!--<div class="inst-icon"></div>-->
+        <!--<div class="fb-icon"></div>-->
+        <!--<div class="current">-->
+          <!--<div class="vk-icon" v-if="vk"></div>-->
+          <!--<div class="inst-icon" v-if="inst"></div>-->
+          <!--{{msg.smName}} </div>-->
+        <!--<div class="ok-icon"></div>-->
+        <!--<div class="tw-icon"></div>-->
+
+        <sm-button v-for="item in 5" v-bind:index="item"></sm-button>
+
       </div>
 
       <div class="messages">
@@ -31,6 +38,7 @@
 
 <script>
   import Messages from './ChatMessage.vue'
+  import SMButton from './SMButton.vue'
     export default {
       name: 'Chat',
       data () {
@@ -40,11 +48,19 @@
                   btnNo: 'Некачественный лид',
                   name: 'АЛЕКСАНДР АЛЕКСАНДРОВ',
                   smName: 'Название соц. сети'
-                }
+                },
+              vk: true,
+              inst: false
             }
         },
       components: {
-          messages: Messages
+          messages: Messages,
+        'sm-button': SMButton
+      },
+      methods: {
+          changeCurrentSM: function () {
+            console.log('press')
+          }
       }
     }
 </script>
@@ -89,29 +105,32 @@
 
   .header div {
     align-items: center;
-    cursor: pointer;
     display: flex;
     justify-content: center;
   }
 
   .name {
     color: white;
-    cursor: pointer;
     font-size: 16px;
   }
 
   .link-icon {
     background: url('../assets/hover-link.png') center / 20px 20px no-repeat;
     cursor: pointer;
-    height: 77px;
+    height: 80px;
     width: 77px;
   }
 
   .chat-icon {
     background: url('../assets/chat-icon.png') center / 20px 20px no-repeat;
     cursor: pointer;
-    height: 77px;
+    height: 80px;
     width: 77px;
+  }
+
+  .chat-icon:hover,
+  .link-icon:hover {
+    background-color: #65a3e5;
   }
 
   .buttons {
@@ -142,8 +161,8 @@
     width: auto;
   }
 
-  .button:last-child {
-    background: #65a3e5;
+  .button:hover {
+    background-color: #65a3e5;
   }
 
   .social-media {
@@ -181,8 +200,8 @@
 
   .social-media div {
     cursor: pointer;
-    height: 60px;
     width: 10%;
+    height: 100%;
   }
 
   .social-media .current {
@@ -196,31 +215,6 @@
     font-size: 14px;
     line-height: 22px;
     justify-content: center;
-  }
-
-  .current div {
-    padding-right: 10px;
-  }
-
-  .inst-icon {
-    background: url('../assets/ig-icon.png') center / 20px 20px no-repeat;
-  }
-
-  .fb-icon {
-    background: url('../assets/fb-cicon.png') center / 10px 18px no-repeat;
-  }
-
-  .vk-icon {
-    background: url('../assets/vk-icon.png') center / 20px 13px no-repeat;
-  }
-
-  .ok-icon {
-    background: url('../assets/ок-icon.png') center/ 12px 18px no-repeat;
-  }
-
-  .tw-icon {
-    background: url('../assets/tw-icon.png') center / 18px 18px no-repeat;
-
   }
 
   .messages {

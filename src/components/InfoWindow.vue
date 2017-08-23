@@ -67,9 +67,14 @@
 
   .header div {
     align-items: center;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     width: 22.5%;
+  }
+
+  .header div:hover {
+    background-color: #65a3e5;
   }
 
   .header-info {

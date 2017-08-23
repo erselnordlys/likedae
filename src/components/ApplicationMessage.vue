@@ -33,6 +33,7 @@
   #client {
     align-items: center;
     border-bottom: 1px solid #d3d3d3;
+    cursor: pointer;
     display: flex;
     height: 90px;
     padding: 0 15px;
