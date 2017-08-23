@@ -10,13 +10,14 @@
       <div id="search">
         <div class="search-icon"></div>
         <input placeholder="ПОИСК">
-        <div class="stars-num">53</div>
+        <div class="stars-num">{{msg.starsNum}}</div>
         <div class="stars-icon"></div>
 
       </div>
       <client v-for='item in 15'></client>
     </div>
-    <div id="button">В начало</div>
+    <div class="blanc"></div>
+    <div id="button">{{msg.button}}</div>
   </div>
 </template>
 
@@ -29,7 +30,9 @@
       return {
         msg: {
           applics: 'ЗАЯВКИ',
-          allClients: 'ВСЕ КЛИЕНТЫ'
+          allClients: 'ВСЕ КЛИЕНТЫ',
+          starsNum: '53',
+          button: 'В начало'
         }
       }
     },
@@ -61,13 +64,19 @@
     background: #65a3e5;
   }
 
+  .blanc {
+    border-top: 1px solid #d3d3d3;
+    min-height: 50px;
+    width: 100%;
+  }
+
   #header {
     background: #8dbbec;
     color: white;
     display: flex;
     flex-direction: row;
     font-size: 16px;
-    min-height: 77px;
+    min-height: 80px;
   }
 
   #header div {
@@ -113,7 +122,7 @@
     border-bottom: 1px solid #d3d3d3;
     display: flex;
     font-size: 14px;
-    height: 70px;
+    height: 80px;
     justify-content: center;
     padding: 0 15px;
   }

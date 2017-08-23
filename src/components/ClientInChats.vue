@@ -54,6 +54,7 @@
   .name {
     font-size: 14px;
     font-weight: bold;
+    line-height: 18px;
   }
 
   .message-text {

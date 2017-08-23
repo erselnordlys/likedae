@@ -5,29 +5,36 @@
         <div class="user-name">{{msg.user}}</div>
       </div>
     </div>
-    <div id="dialogue" class="header">{{msg.dialogue}}</div>
+    <dialogue class="header"></dialogue>
+
     <div id="data">
       <applications class="container"></applications>
-      <div id="container-2" class="container"></div>
-      <div id="container-3" class="container"></div>
+      <chat class="container"></chat>
+      <info class="container"></info>
+      <!--<div id="container-3" class="container"></div>-->
     </div>
   </div>
 </template>
 
 <script>
   import Applications from './Applications.vue'
+  import Dialogue from './DialogueBar.vue'
+  import Chat from './Chat.vue'
+  import Info from './Info.vue'
   export default {
     name: '',
     data () {
       return {
         msg: {
-          dialogue: 'ДИАЛОГОВОЕ ОКНО',
           user: 'Александр'
         }
       }
     },
     components: {
-      applications: Applications
+      applications: Applications,
+      dialogue: Dialogue,
+      chat: Chat,
+      info: Info
     }
   }
 </script>
@@ -48,7 +55,6 @@
     background: #fff url('../assets/logo.png') 30px 50% / 130px 23px no-repeat;
     justify-content: flex-end;
     padding: 0 30px;
-
   }
 
   .user {
@@ -64,16 +70,7 @@
     background: url('../assets/caret-down.png') right/ 10px 10px no-repeat;
     font-size: 20px;
     margin-left: 60px;
-    width: 150px;
-  }
-
-  #dialogue {
-    align-items: center;
-    background: #f8f8f8;
-    color: #d39c00;
-    display: flex;
-    font-size: 16px;
-    padding: 0 30px;
+    padding-right: 20px;
   }
 
   #data {
@@ -85,17 +82,16 @@
 
   .container {
     background: #fff;
-    border: 1px solid black;
     display: flex;
     max-height: 750px;
     margin-bottom: 190px;
+    min-width: 300px;
     width: 27%;
   }
-  #container-2 {
-    width: 46%;
+  .container:nth-child(2) {
     margin: 0 30px;
+    min-width: 500px;
+    width: 46%;
   }
 
-  #container-3 {
-  }
 </style>
