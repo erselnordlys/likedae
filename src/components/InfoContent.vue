@@ -1,7 +1,8 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div id="content">
       <div class="info-card card">
-        <div class="info-header">{{msg.mainInfo}}</div>
+        <div class="info-header">{{msg.mainInfo}}
+        </div>
         <div class="info-block">
           <div class="line name">{{msg.name}}</div>
           <div class="line vk">{{msg.vk}}</div>
@@ -11,7 +12,9 @@
       </div>
 
     <div class="info-card card">
-      <div class="info-header">{{msg.addInfo}}</div>
+      <div class="info-header">
+        <div>{{msg.addInfo}}</div>
+        </div>
       <div class="info-block">
         <div class="line compass">{{msg.compass}}</div>
         <div class="line location">{{msg.location}}</div>
@@ -75,10 +78,17 @@
     background-color: #f8f8f8;
     color: #383838;
     display: flex;
-    height: 35px;
+    flex-wrap: wrap;
+    height: auto;
     justify-content: center;
+    padding: 10px 0;
     width: 100%;
   }
+
+  .info-header:nth-child(1) div {
+    padding-left: 10px;
+  }
+
   .info-block {
     color: #383838;
     height: auto;

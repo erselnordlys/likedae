@@ -9,7 +9,7 @@
       <div class="social-media">
         <div class="inst-icon"></div>
         <div class="fb-icon"></div>
-        <div class="vk-icon current">{{msg.smName}}</div>
+        <div class="current"> <div class="vk-icon"></div> {{msg.smName}} </div>
         <div class="ok-icon"></div>
         <div class="tw-icon"></div>
       </div>
@@ -30,9 +30,9 @@
 </template>
 
 <script>
-  import Messages from './Messages.vue'
+  import Messages from './ChatMessage.vue'
     export default {
-      name: '',
+      name: 'Chat',
       data () {
             return {
                 msg: {
@@ -54,7 +54,9 @@
     background: #fff;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     height: 100%;
+    min-width: 320px;
     position: relative;
   }
   ::-webkit-scrollbar {
@@ -117,6 +119,7 @@
     cursor: pointer;
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
     height: auto;
     justify-content: space-between;
     position: absolute;
@@ -154,7 +157,6 @@
     position: relative;
   }
 
-
   .social-media:after {
     bottom: -15px;
     border-left: 12px solid transparent;
@@ -186,7 +188,6 @@
   .social-media .current {
     width: 60%;
     align-items: center;
-    background-position-x: 67px;
     border-right: 1px solid #d3d3d3;
     border-left: 1px solid #d3d3d3;
     color: #65a3e5;
@@ -195,6 +196,10 @@
     font-size: 14px;
     line-height: 22px;
     justify-content: center;
+  }
+
+  .current div {
+    padding-right: 10px;
   }
 
   .inst-icon {

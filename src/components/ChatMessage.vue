@@ -33,7 +33,7 @@
 <script>
 
     export default {
-        name: '',
+        name: 'ChatMessage',
         data () {
             return {
                 msg: {
@@ -83,6 +83,8 @@
     cursor: pointer;
     height: 65px;
     margin-right: 15px;
+    min-height: 40px;
+    min-width: 40px;
     width: 65px;
   }
 
@@ -96,7 +98,6 @@
     flex-direction: column;
     height: auto;
     width: auto;
-    max-width: 520px;
   }
 
   .name {
@@ -106,6 +107,7 @@
     font-weight: bold;
     line-height: 18px;
     padding-bottom: 15px;
+    width: auto;
   }
 
   .manager {

@@ -18,7 +18,7 @@
 <script>
   import Content from './InfoContent.vue'
   export default {
-    name: '',
+    name: 'InfoWindow',
     data () {
       return {
       }
@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-width: 230px;
     position: relative;
   }
   ::-webkit-scrollbar {

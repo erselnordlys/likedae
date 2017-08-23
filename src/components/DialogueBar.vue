@@ -40,7 +40,9 @@
     display: flex;
     justify-content:space-between;
     font-size: 16px;
+    min-width: 400px;
     padding-left:30px;
+    width: auto;
   }
 
   .durations {

@@ -22,10 +22,9 @@
 </template>
 
 <script>
-  import Client from './ClientInChats.vue'
-  import gear from '../assets/fa-gear.png'
+  import Client from './ApplicationMessage.vue'
   export default {
-    name: '',
+    name: 'ApplicationsWindow',
     data () {
       return {
         msg: {
@@ -49,6 +48,7 @@
     flex-direction: column;
     height: 100%;
     position: relative;
+    min-width: 250px;
   }
   ::-webkit-scrollbar
   {
@@ -125,6 +125,7 @@
     height: 80px;
     justify-content: center;
     padding: 0 15px;
+    width: auto;
   }
 
   .search-icon {
@@ -139,6 +140,7 @@
     font-size: 14px;
     flex-grow: 1;
     margin-left: 15px;
+    min-width: 100px;
   }
 
   .stars-num {

@@ -5,24 +5,23 @@
         <div class="user-name">{{msg.user}}</div>
       </div>
     </div>
-    <dialogue class="header"></dialogue>
+    <dialogue-bar class="header"></dialogue-bar>
 
     <div id="data">
       <applications class="container"></applications>
       <chat class="container"></chat>
       <info class="container"></info>
-      <!--<div id="container-3" class="container"></div>-->
     </div>
   </div>
 </template>
 
 <script>
-  import Applications from './Applications.vue'
+  import Applications from './ApplicationsWindow.vue'
   import Dialogue from './DialogueBar.vue'
   import Chat from './Chat.vue'
-  import Info from './Info.vue'
+  import Info from './InfoWindow.vue'
   export default {
-    name: '',
+    name: 'MainContent',
     data () {
       return {
         msg: {
@@ -32,7 +31,7 @@
     },
     components: {
       applications: Applications,
-      dialogue: Dialogue,
+      'dialogue-bar': Dialogue,
       chat: Chat,
       info: Info
     }
@@ -50,6 +49,7 @@
   .header {
     display: flex;
     height: 80px;
+    width: auto;
   }
   #header {
     background: #fff url('../assets/logo.png') 30px 50% / 130px 23px no-repeat;
@@ -85,12 +85,13 @@
     display: flex;
     max-height: 750px;
     margin-bottom: 190px;
+    max-width: 360px;
     min-width: 300px;
     width: 27%;
   }
   .container:nth-child(2) {
     margin: 0 30px;
-    min-width: 500px;
+    max-width: 80%;
     width: 46%;
   }
 

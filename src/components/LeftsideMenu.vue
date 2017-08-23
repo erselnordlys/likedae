@@ -10,14 +10,12 @@
     <div class="button bell"></div>
     <div class="button calendar"></div>
     <div class="button fly"></div>
-
-
   </div>
 </template>
 
 <script>
   export default {
-    name: '',
+    name: 'LeftsideMenu',
     data () {
       return {
         msg: {
@@ -34,15 +32,16 @@
     background: #606060;
     display: flex;
     flex-direction: column;
-    height: auto;
+    flex-grow: 1;
+    /*height: auto;  */
     min-height: 100%;
+    min-width: 60px;
     width: 80px;
   }
 
   .button {
     height: 80px;
     position: relative;
-    width: 80px;
   }
 
   .button:hover {
