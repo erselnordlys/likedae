@@ -85,7 +85,7 @@
     background: #fff;
     display: flex;
     max-height: 750px;
-    margin-bottom: 190px;
+    margin-bottom: 50px;
     max-width: 360px;
     min-width: 300px;
     width: 27%;

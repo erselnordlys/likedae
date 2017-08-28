@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    min-height: 100%;
+    height: auto;
     min-width: 60px;
     width: 80px;
   }

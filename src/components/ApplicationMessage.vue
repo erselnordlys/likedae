@@ -18,12 +18,12 @@
     name: 'ApplicationMessage',
     data () {
       return {
-          msg: {
-            name: 'АЛЕКСАНДР АЛЕКСАНДРОВИЧ',
-            message: 'В первой записи измен...',
-            time: '22:00',
-            unread: '10'
-          }
+        msg: {
+          name: 'АЛЕКСАНДР АЛЕКСАНДРОВИЧ',
+          message: 'В первой записи измен...',
+          time: '22:00',
+          unread: '10'
+        }
       }
     }
   }

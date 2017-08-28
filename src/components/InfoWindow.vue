@@ -19,10 +19,6 @@
   import Content from './InfoContent.vue'
   export default {
     name: 'InfoWindow',
-    data () {
-      return {
-      }
-    },
     components: {
         components: Content
     }

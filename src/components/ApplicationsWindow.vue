@@ -136,7 +136,7 @@
   .search-icon {
     background:  url('../assets/ fa-search.png') center / 20px 20px no-repeat;
     height: 20px;
-    width: 20px;
+    width: 24px;
   }
 
   input {
@@ -159,8 +159,7 @@
     cursor: pointer;
     height: 18px;
     margin-left: 10px;
-    margin-right: 10px;
-    width: 15px;
+    width: 18px;
   }
 
   #list {

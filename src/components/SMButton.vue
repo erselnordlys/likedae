@@ -1,7 +1,11 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <div id="sm-button"  v-bind:class="current" @click="renderIcons">
-    <div v-bind:class='elementClass' class="icon"></div>
-    <!--<div class="text" v-if="text">{{msg}}</div>-->
+  <div id="sm-button" v-on:click="changeCurrentSM" v-bind:class="{current : isCurrent}">
+    <div class="icon" v-if="vis" v-bind:class="elementClass"></div>
+
+    <div  v-if="cur" class="cur-div">
+      <div  class="icon" v-bind:class="elementClass"></div>
+      <div class="text">{{msg}}</div>
+    </div>
   </div>
 </template>
 
@@ -11,59 +15,29 @@
     name: 'SMButton',
     data () {
       return {
-        classes: {0: 'inst-icon', 1: 'fb-icon', 2: 'vk-icon', 3: 'ok-icon', 4: 'tw-icon'},
-        msg: 'Название соц. сети',
-        text: false
+        msg: 'Название соц. сети'
       }
     },
-    props: ['index'],
+    props: ['index', 'elementClass', 'isCurrent'],
     computed: {
-        elementClass: function () {
-            console.log('rendering')
-          console.log(this.cls)
-            if (this.index == 3) {
-              this.text = true;
-            }
-          return this.cls[this.index - 1];
-        },
-
-      current: function () {
-        if (this.index == 3) {
-            return 'current';
+      cur: function () {
+        if (this.isCurrent) {
+            return true;
+        } else {
+            return false;
         }
       },
-
-      cls: function () {
-        return this.classes;
+      vis: function () {
+        if (this.isCurrent) {
+          return false;
+        } else {
+          return true;
+        }
       }
     },
     methods: {
-      renderIcons: function () {
-          console.log('render')
-        let clicked = this.classes[this.index - 1]; // ok
-        let prev = this.classes[2]; // vk
-        let classes = this.classes;
-
-        let obj = {};
-
-        for (let i = 0; i < 5; i++) {
-            console.log(i)
-          if (classes[i] == clicked) {
-            console.log(obj)
-
-            obj[2] = clicked;
-            console.log(obj);
-          } else if (classes[i] == prev) {
-                obj[this.index - 1] = prev;
-                console.log('prev placed')
-            console.log(obj);
-
-          } else {
-                obj[i] = classes[i];
-          }
-        }
-
-//        this.classes = obj;
+      changeCurrentSM: function() {
+        this.$emit('changeCurrentSM', this.index)
       }
     }
   }
@@ -79,8 +53,14 @@
  }
 
  .icon {
-   height: 100%;
+   height: 80px;
    width:50px;
+ }
+
+ .cur-div {
+   display: flex;
+   align-items: center;
+   justify-content: center;
  }
 
  .inst-icon {

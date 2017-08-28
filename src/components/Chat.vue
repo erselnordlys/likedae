@@ -1,68 +1,63 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-    <div id="chat">
-      <div class="header">
-        <div class="link-icon"></div>
-        <div class="name">{{msg.name}}</div>
-        <div class="chat-icon"></div>
-      </div>
+  <div id="chat">
+    <div class="header">
+      <div class="link-icon"></div>
+      <div class="name">{{msg.name}}</div>
+      <div class="chat-icon"></div>
+    </div>
 
-      <div class="social-media">
+    <div class="social-media">
 
-        <!--<div class="inst-icon"></div>-->
-        <!--<div class="fb-icon"></div>-->
-        <!--<div class="current">-->
-          <!--<div class="vk-icon" v-if="vk"></div>-->
-          <!--<div class="inst-icon" v-if="inst"></div>-->
-          <!--{{msg.smName}} </div>-->
-        <!--<div class="ok-icon"></div>-->
-        <!--<div class="tw-icon"></div>-->
-
-        <sm-button v-for="item in 5" v-bind:index="item"></sm-button>
-
-      </div>
-
-      <div class="messages">
-        <messages v-for="item in 10"></messages>
-      </div>
-      <div class="blanc"></div>
-
-      <div class="buttons">
-        <div class="button">{{msg.btnYes}}</div>
-        <div class="button">{{msg.btnNo}}</div>
-      </div>
+      <sm-button
+        v-for="(item, index) in classes"
+        v-bind:elementClass="item"
+        v-bind:index="index"
+        v-bind:curNum="num"
+        v-on:changeCurrentSM="changeCurrentSM"
+        v-bind:isCurrent="(index == num)"
+      ></sm-button>
 
     </div>
 
+    <div class="messages">
+      <messages v-for="item in 10"></messages>
+    </div>
+    <div class="blanc"></div>
 
+    <div class="buttons">
+      <div class="button">{{msg.btnYes}}</div>
+      <div class="button">{{msg.btnNo}}</div>
+    </div>
+  </div>
 </template>
 
 <script>
   import Messages from './ChatMessage.vue'
   import SMButton from './SMButton.vue'
-    export default {
-      name: 'Chat',
-      data () {
-            return {
-                msg: {
-                  btnYes: 'Взять в работу',
-                  btnNo: 'Некачественный лид',
-                  name: 'АЛЕКСАНДР АЛЕКСАНДРОВ',
-                  smName: 'Название соц. сети'
-                },
-              vk: true,
-              inst: false
-            }
+  export default {
+    name: 'Chat',
+    data () {
+      return {
+        msg: {
+          btnYes: 'Взять в работу',
+          btnNo: 'Некачественный лид',
+          name: 'АЛЕКСАНДР АЛЕКСАНДРОВ',
+          smName: 'Название соц. сети'
         },
-      components: {
-          messages: Messages,
-        'sm-button': SMButton
-      },
-      methods: {
-          changeCurrentSM: function () {
-            console.log('press')
-          }
+        classes: ['inst-icon', 'fb-icon', 'vk-icon', 'ok-icon', 'tw-icon'],
+        num: 2
+      }
+    },
+    components: {
+      messages: Messages,
+      'sm-button': SMButton
+    },
+    methods: {
+      changeCurrentSM: function (index) {
+        this.num = index;
       }
     }
+  }
 </script>
 
 <style scoped>
@@ -176,7 +171,13 @@
     position: relative;
   }
 
-  .social-media:after {
+  .social-media div {
+    cursor: pointer;
+    width: 10%;
+    height: 100%;
+  }
+
+  .social-media .current:after {
     bottom: -15px;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
@@ -187,7 +188,7 @@
     width: 0;
   }
 
-  .social-media:before {
+  .social-media .current:before {
     bottom: -17px;
     border-left: 14px solid transparent;
     border-right: 14px solid transparent;
@@ -196,12 +197,6 @@
     height: 0;
     position: absolute;
     width: 0;
-  }
-
-  .social-media div {
-    cursor: pointer;
-    width: 10%;
-    height: 100%;
   }
 
   .social-media .current {
